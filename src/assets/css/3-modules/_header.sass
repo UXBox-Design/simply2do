@@ -1,0 +1,123 @@
+.header
+  position: relative
+  margin-top: 60px
+
+  .filter
+    display: flex
+    align-items: center
+    margin-bottom: 45px
+
+    &--is-open
+
+      .filter__toggle-el
+      	transform: rotate(90deg)
+
+      .filter__options-el span
+      	transform: translateX(0)
+      	visibility: visible
+
+    &__toggle
+      display: flex
+      align-items: center
+      width: 40px
+      height: 40px
+      margin-right: 45px
+      cursor: pointer
+
+      &-el
+        transform: rotate(45deg)
+        display: block
+        width: 24px
+        transition: transform .2s linear
+
+    &__options
+      display: flex
+      margin: 0
+      padding: 0
+      list-style: none
+
+      &-el
+        margin-right: 30px
+        font-weight: 500
+        text-transform: uppercase
+        overflow: hidden
+
+        &:last-child
+          margin-right: 0
+
+        span
+          transform: translateX(-100%)
+          display: block
+          visibility: hidden
+          cursor: pointer
+          transition: transform .2s linear, color .2s ease-in-out
+          
+          &.is-active
+          	color: $highlight
+
+  &__title
+    color: $highlight
+    font-size: 46px
+    font-family: serif
+    
+  &__form
+    position: relative
+    margin-bottom: 90px
+    
+    &-input
+      width: 100%
+      padding: 20px 35px 20px 0
+      color: lighten($copy, 30%)
+      font-size: 18px
+      font-family: serif
+      font-style: italic
+      border: none
+      border-bottom: 1px solid $copy
+      border-radius: 0
+      background-color: transparent
+      opacity: .6
+
+      &:focus
+        outline: none
+
+    &-submit
+      position: absolute
+      top: 50%
+      right: 0
+      transform: translateY(-50%)
+      display: flex
+      align-items: center
+      width: 30px
+      height: 30px
+      border: none
+      background: transparent
+
+      img
+        transform: rotate(45deg)
+        position: relative
+        left: -10px
+        display: block
+        width: 22px
+        opacity: .6
+        
+@media (max-width: 480px)
+
+	.header
+	
+	  .filter
+	    margin-bottom: 45px
+	
+	    &__toggle
+	      margin-right: 30px
+	
+	    &__options
+	
+	      &-el
+	        margin-right: 18px
+	
+	  &__title
+	    font-size: 32px
+	    
+	  &__form
+	    margin-bottom: 60px
+	    
