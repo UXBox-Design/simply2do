@@ -11,9 +11,6 @@ class Register extends React.Component {
 						email: email.value,
 						password: password.value
 					}
-		ev.target.fullname.value = ''
-		ev.target.email.value = ''
-		ev.target.password.value = ''
 		Actions.registerUser(userObj)
 	}
 	

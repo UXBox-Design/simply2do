@@ -7,8 +7,6 @@ class Login extends React.Component {
 		ev.preventDefault()
 		const { email, password } = ev.target
 		Actions.loginUser(email.value, password.value)
-		ev.target.email.value = ''
-		ev.target.password.value = ''
 	}
 	
 	render() {
