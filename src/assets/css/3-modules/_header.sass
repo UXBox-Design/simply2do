@@ -14,7 +14,7 @@
 
       .filter__options-el span
       	transform: translateX(0)
-      	visibility: visible
+      	pointer-events: auto
 
     &__toggle
       display: flex
@@ -48,7 +48,7 @@
         span
           transform: translateX(-100%)
           display: block
-          visibility: hidden
+          pointer-events: none
           cursor: pointer
           transition: transform .2s linear, color .2s ease-in-out
           
