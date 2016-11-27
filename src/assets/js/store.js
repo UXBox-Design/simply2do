@@ -1,14 +1,14 @@
 import _ from 'underscore'
 import Backbone from 'backbone'
-import { TaskModel, TasksCollection } from './models/data'
+import { TasksCollection } from './models/data'
 
-const Store = _.extend(Backbone.Events, {
+const STORE = _.extend(Backbone.Events, {
 	
 	data: {
 		collection: new TasksCollection(),
 		activeForm: 'register',
-		filter: 'all',
-		formAlert: false
+		formAlert: false,
+		filter: 'all'
 	},
 	
 	getData() {
@@ -34,6 +34,6 @@ const Store = _.extend(Backbone.Events, {
 	
 })
 
-Store.initialize()
+STORE.initialize()
 
-export default Store
+export default STORE
