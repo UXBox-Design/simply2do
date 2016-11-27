@@ -1,12 +1,12 @@
 import React from 'react'
-import Actions from '../actions'
+import ACTIONS from '../actions'
 
 class Login extends React.Component {
 	
 	handleSubmit(ev) {
 		ev.preventDefault()
 		const { email, password } = ev.target
-		Actions.loginUser(email.value, password.value)
+		ACTIONS.loginUser(email.value, password.value)
 	}
 	
 	render() {

@@ -1,13 +1,13 @@
 import React from 'react'
-import Store from '../store'
+import STORE from '../store'
 import Register from './register'
 import Login from './login'
 
 class Form extends React.Component {
 	
 	toggleActiveForm() {
-		Store.set({
-			activeForm: Store.get('activeForm') === 'register' ? 'login' : 'register'
+		STORE.set({
+			activeForm: STORE.get('activeForm') === 'register' ? 'login' : 'register'
 		})
 	}
 	

@@ -1,5 +1,5 @@
 import React from 'react'
-import Actions from '../actions'
+import ACTIONS from '../actions'
 
 class Register extends React.Component {
 	
@@ -11,7 +11,7 @@ class Register extends React.Component {
 						email: email.value,
 						password: password.value
 					}
-		Actions.registerUser(userObj)
+		ACTIONS.registerUser(userObj)
 	}
 	
 	render() {

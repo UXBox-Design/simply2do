@@ -1,5 +1,5 @@
 import React from 'react'
-import Actions from '../actions'
+import ACTIONS from '../actions'
 import HeaderForm from './headerForm'
 
 class Header extends React.Component {
@@ -16,7 +16,7 @@ class Header extends React.Component {
 		  			selectedValue = selected.textContent.toLowerCase()
 	    currentActive.classList.remove('is-active')
 	    selected.classList.add('is-active')
-	    Actions.filterTasks(selectedValue)
+	    ACTIONS.filterTasks(selectedValue)
     }
   }
 

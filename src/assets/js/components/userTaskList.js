@@ -1,5 +1,5 @@
 import React from 'react'
-import Actions from '../actions'
+import ACTIONS from '../actions'
 
 class UserTaskList extends React.Component {
 
@@ -35,7 +35,7 @@ class Task extends React.Component {
       <li className="task">
         <div className="task__info">
           <input id={model.cid} type="checkbox"
-            checked={model.get('complete') ? 'checked' : ''} onChange={Actions.toggleComplete.bind(this)}
+            checked={model.get('complete') ? 'checked' : ''} onChange={ACTIONS.toggleComplete.bind(this)}
           />
           <div className="task__info-status">
             <label htmlFor={model.cid} className="toggle">
@@ -44,7 +44,7 @@ class Task extends React.Component {
             </label>
           </div>
           <span className="task__info-description"
-            onClick={Actions.removeTask.bind(this)}>
+            onClick={ACTIONS.removeTask.bind(this)}>
             {model.get('description')}
           </span>
         </div>

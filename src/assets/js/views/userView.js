@@ -1,6 +1,6 @@
 import React from 'react'
-import Store from '../store'
-import Actions from '../actions'
+import STORE from '../store'
+import ACTIONS from '../actions'
 import LoginSuccess from '../components/loginSuccess'
 import Header from '../components/header'
 import UserTaskList from '../components/userTaskList'
@@ -9,18 +9,18 @@ class UserView extends React.Component {
 	
 	constructor() {
 		super()
-		this.state = Store.getData()
+		this.state = STORE.getData()
 	}
 	
 	componentWillMount() {
-		Store.on('syncState', () => {
-			this.setState(Store.getData())
+		STORE.on('syncState', () => {
+			this.setState(STORE.getData())
 		})
-			Actions.fetchTasks()
+			ACTIONS.fetchTasks()
 	}
 	
 	componentWillUnmount() {
-		Store.off('syncState')
+		STORE.off('syncState')
 	}
 	
 	render() {
@@ -37,7 +37,7 @@ class UserView extends React.Component {
 						<LoginSuccess />
 					</div>
         </div>
-        <div className="sidebar__toggle sidebar__toggle--open" onClick={Actions.toggleSidebar}>
+        <div className="sidebar__toggle sidebar__toggle--open" onClick={ACTIONS.toggleSidebar}>
         	<img src="img/user.svg" />
         </div>
 			</div>

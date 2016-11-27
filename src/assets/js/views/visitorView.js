@@ -1,5 +1,5 @@
 import React from 'react'
-import Store from '../store'
+import STORE from '../store'
 import Form from '../components/form'
 import Header from '../components/header'
 import VisitorTaskList from '../components/visitorTaskList'
@@ -8,17 +8,17 @@ class VisitorView extends React.Component {
 	
 	constructor() {
 		super()
-		this.state = Store.getData()
+		this.state = STORE.getData()
 	}
 	
 	componentWillMount() {
-		Store.on('syncState', () => {
-			this.setState(Store.getData())
+		STORE.on('syncState', () => {
+			this.setState(STORE.getData())
 		})
 	}
 	
 	componentWillUnmount() {
-		Store.off('syncState')
+		STORE.off('syncState')
 	}
 	
 	render() {

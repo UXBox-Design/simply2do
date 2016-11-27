@@ -1,11 +1,11 @@
-import Store from './store'
+import STORE from './store'
 import { TaskModel, TasksCollection } from './models/data'
 import User from './models/user'
 
-const Actions = {
+const ACTIONS = {
 	
 	fetchTasks() {
-    Store.get('collection').fetch({
+    STORE.get('collection').fetch({
 	    data: {
 		    user_id: User.getCurrentUser()._id
 	    }
@@ -22,35 +22,35 @@ const Actions = {
     if (taskInfo.description) {
       let taskModel = new TaskModel(taskInfo)
       taskModel.save()
-      Store.get('collection').add(taskModel)
+      STORE.get('collection').add(taskModel)
     }
     ev.target.description.value = ''
   },
   
   removeTask() {
-    let coll = Store.get('collection')
+    let coll = STORE.get('collection')
     let taskModel = coll.get(this.props.model)
     taskModel.destroy()
     coll.remove(taskModel)
-    Store.set({
+    STORE.set({
       collection: coll
     })
   },
 
   toggleComplete() {
-    let coll = Store.get('collection')
+    let coll = STORE.get('collection')
     let taskModel = coll.get(this.props.model)
     taskModel.set({
       complete: taskModel.get('complete') ? false : true
     })
     taskModel.save()
-    Store.set({
+    STORE.set({
       collection: coll
     })
   },
   
   filterTasks(value) {
-	  Store.set({ filter: value })
+	  STORE.set({ filter: value })
   },
   
   toggleSidebar() {
@@ -69,12 +69,12 @@ const Actions = {
 		User.login(email, password)
 				.then(() => {
 						location.hash = 'user'
-						Store.set({ formAlert: false })
+						STORE.set({ formAlert: false })
 						setTimeout(() => {
 							this.toggleSidebar()
 						}, 1600)
 					},
-					() => Store.set({ formAlert: true })
+					() => STORE.set({ formAlert: true })
 				)
 	},
 	
@@ -85,4 +85,4 @@ const Actions = {
 	
 }
 
-export default Actions
+export default ACTIONS
