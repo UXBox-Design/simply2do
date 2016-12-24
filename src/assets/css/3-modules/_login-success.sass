@@ -1,20 +1,20 @@
 .login-success
 	position: relative
-	padding-top: 60px
-	
+	padding: 60px 0
+
 	.blurb
 		font-weight: 500
 		font-size: 16px
 		text-align: left
-		
+
 		.pull-request
 			color: $copy
 			font-weight: 700
 			transition: color .2s ease-in-out
-		
+
 			&:hover
 				color: $highlight
-	
+
 		&__attribution
 			display: block
 			margin-top: 10px
@@ -22,12 +22,12 @@
 			font-family: serif
 			font-style: italic
 			text-align: right
-			
+
 	&__content
 		text-align: center
 		opacity: 0
 		animation: fadeIn .6s ease-in-out 1s forwards
-			
+
 		.logout
 			margin-top: 60px
 			font-weight: 500
@@ -35,10 +35,10 @@
 			border: none
 			background-color: transparent
 			transition: color .2s ease-in-out
-		
+
 			&:hover
 				color: $highlight
-				
+
 	.checkmark
 		display: block
 		width: 40px
@@ -50,7 +50,7 @@
 		stroke-miterlimit: 10
 		box-shadow: inset 0px 0px 0px $highlight
 		animation: fill .4s ease-in-out .4s forwards, scale .2s ease-in-out .8s both
-			
+
 		&__circle
 			stroke-dasharray: 166
 			stroke-dashoffset: 166
@@ -65,4 +65,3 @@
 			stroke-dasharray: 48
 			stroke-dashoffset: 48
 			animation: stroke .2s cubic-bezier(0.650, 0.000, 0.450, 1.000) .8s forwards
-			
