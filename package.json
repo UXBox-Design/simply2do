@@ -1,7 +1,7 @@
 {
-  "name": "tiy-full-stack",
-  "version": "0.1.0",
-  "description": "a javascript framework that will run an express server and connect it to a mongodb instance. uses mongoose for schemas, models, queries etc. comes with pre-fab user schema and auth router. pre-fab client-side session mantenance as well.\n\nin dev mode, auto-transpiles es6 and scss to es5 and css, browserifying all imported modules along the way.",
+  "name": "simply2do",
+  "version": "1.0.0",
+  "description": "simple task manager",
   "scripts": {
     "init-dev": "npm run name-project && npm install",
     "name-project": "echo \"\\033[04mEnter project name (no spaces): \\033[0m\\033[32m\" && read project_name && sed '1 d' ./server.js > temp && mv temp ./server.js && echo \"global.PROJECT_NAME = '$project_name'\" | cat - server.js > temp && mv temp server.js",
@@ -28,26 +28,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/magentanova/tiy-full-stack.git"
+    "url": "git+https://github.com/BuckyMaler/simply2do"
   },
   "keywords": [
-    "babel",
-    "build",
-    "scss",
+    "react",
+    "sass",
     "node"
   ],
   "author": {
-    "name": "Travis Hubbard",
-    "email": "t3patterson@gmail.com",
-    "url": "http://github.com/t3patterson"
+    "name": "Bucky Maler",
+    "url": "buckymaler.com",
+    "mail": "maler.bucky@gmail.com"
   },
-  "contributors": [
-    {
-      "name": "Justin Richards",
-      "email": "richards.justind@gmail.com",
-      "url": "http://github.com/magentanova"
-    }
-  ],
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.5.1",
