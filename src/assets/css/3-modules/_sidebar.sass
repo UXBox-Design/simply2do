@@ -2,26 +2,27 @@
 	position: fixed
 	width: 35%
 	height: 100vh
+	overflow-y: scroll
 	background-color: $secondary
-	
+
 	&__toggle
 		display: none
-	
+
 @media (max-width: 991px)
 
 	.sidebar
 		top: 0
 		right: 0
-		transform: translateX(100%)
+		transform: translateX(0)
 		width: 80%
 		max-width: 350px
 		box-shadow: 0 0 15px $black
 		z-index: 1
 		transition: transform .6s ease
-		
-		&--is-open
-			transform: translateX(0)
-		
+
+		&--is-closed
+			transform: translateX(100%)
+
 		&__toggle
 			position: absolute
 			top: 15px
@@ -31,15 +32,14 @@
 			width: 30px
 			height: 30px
 			cursor: pointer
-			
+
 			&--close
 				left: 0
 				opacity: 0
 				animation: fadeIn .6s ease-in-out 1s forwards
-			
+
 			&--open
 				right: 15px
-			
+
 			img
 				width: 16px
-				

@@ -3,7 +3,7 @@ import { TaskModel, TasksCollection } from './models/data'
 import User from './models/user'
 
 const ACTIONS = {
-	
+
 	fetchTasks() {
     STORE.get('collection').fetch({
 	    data: {
@@ -11,7 +11,7 @@ const ACTIONS = {
 	    }
     })
   },
-	
+
 	addTask(ev) {
     ev.preventDefault()
     const { value } = ev.target.description
@@ -26,7 +26,7 @@ const ACTIONS = {
     }
     ev.target.description.value = ''
   },
-  
+
   removeTask() {
     let coll = STORE.get('collection')
     let taskModel = coll.get(this.props.model)
@@ -48,23 +48,43 @@ const ACTIONS = {
       collection: coll
     })
   },
-  
+
   filterTasks(value) {
 	  STORE.set({ filter: value })
   },
-  
+
   toggleSidebar() {
-	  const sidebar = document.querySelector('.sidebar')
-	  sidebar.classList.toggle('sidebar--is-open')
+		const prevState = STORE.get('sidebarIsOpen')
+	  STORE.set({ sidebarIsOpen: !prevState })
   },
-	
+
+	toggleFilterOptions() {
+		const prevState = STORE.get('filter')
+	  STORE.set({
+			filter: {
+				isOpen: !prevState.isOpen,
+				active: prevState.active
+			}
+		})
+	},
+
+	updateActiveFilter(filterVal) {
+		const prevState = STORE.get('filter')
+	  STORE.set({
+			filter: {
+				isOpen: prevState.isOpen,
+				active: filterVal
+			}
+		})
+	},
+
 	registerUser(userObj) {
 		User.register(userObj)
 				.then(() => {
 					this.loginUser(userObj.email, userObj.password)
 				})
 	},
-	
+
 	loginUser(email, password) {
 		User.login(email, password)
 				.then(() => {
@@ -77,12 +97,12 @@ const ACTIONS = {
 					() => STORE.set({ formAlert: true })
 				)
 	},
-	
+
 	logoutUser() {
 		User.logout()
 				.then(() => location.hash = 'visitor')
   }
-	
+
 }
 
 export default ACTIONS

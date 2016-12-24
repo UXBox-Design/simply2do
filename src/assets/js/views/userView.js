@@ -6,33 +6,33 @@ import Header from '../components/header'
 import UserTaskList from '../components/userTaskList'
 
 class UserView extends React.Component {
-	
+
 	constructor() {
 		super()
 		this.state = STORE.getData()
 	}
-	
+
 	componentWillMount() {
 		STORE.on('syncState', () => {
 			this.setState(STORE.getData())
 		})
 			ACTIONS.fetchTasks()
 	}
-	
+
 	componentWillUnmount() {
 		STORE.off('syncState')
 	}
-	
+
 	render() {
 		return (
 			<div className="user-view">
         <div className="main main--logged-in">
 	        <div className="l-wrapper l-wrapper--medium">
-	          <Header />
-	          <UserTaskList collection={this.state.collection} filter={this.state.filter} />
+	          <Header filterState={this.state.filter} />
+	          <UserTaskList collection={this.state.collection} filterState={this.state.filter} />
 	        </div>
         </div>
-        <div className="sidebar sidebar--is-open">
+        <div className={this.state.sidebarIsOpen ? 'sidebar' : 'sidebar sidebar--is-closed'}>
 					<div className="l-wrapper l-wrapper--small">
 						<LoginSuccess />
 					</div>
@@ -43,7 +43,7 @@ class UserView extends React.Component {
 			</div>
 		)
 	}
-	
+
 }
 
 export default UserView

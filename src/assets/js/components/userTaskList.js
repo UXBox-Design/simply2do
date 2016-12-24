@@ -4,7 +4,7 @@ import ACTIONS from '../actions'
 class UserTaskList extends React.Component {
 
   render() {
-	  const { filter: filterValue } = this.props
+	  const { active: filterValue } = this.props.filterState
     return (
       <ul className="task-list">
         {this.props.collection.filter(taskModel => {

@@ -1,10 +1,10 @@
 .form
 	transform: scale(.8)
 	position: relative
-	padding-top: 60px
+	padding: 60px 0
 	opacity: 0
 	animation: scaleUp .6s ease-in-out forwards
-	
+
 	.options
 		display: flex
 		align-items: center
@@ -12,7 +12,7 @@
 		margin: 0 0 60px 0
 		padding: 0
 		list-style: none
-		
+
 		&__el
 	    font-size: 28px
 	    font-weight: 700
@@ -20,24 +20,24 @@
 	    border-bottom: 1px solid transparent
 	    cursor: pointer
 	    transition: color .2s ease-in-out, border-color .2s ease-in-out
-		
+
 		span
 			margin: 0 18px
 			font-weight: 500
-	
+
 	.register,
 	.login
 		position: relative
-		
+
 		&__label
 			display: block
 			color: $highlight
 			font-weight: 500
 			text-transform: uppercase
-			
+
 		&__submit
 			text-align: center
-		
+
 			button
 				padding: 8px 46px
 				color: $white
@@ -47,10 +47,10 @@
 				box-shadow: 0 3px 20px $black
 				background-color: $highlight
 				transition: background-color .2s ease-in-out
-				
+
 				&:hover
 					background-color: lighten($highlight, 2%)
-			
+
 		&__input
       width: 100%
       margin-bottom: 45px
@@ -61,10 +61,10 @@
       border-radius: 0
       background-color: transparent
       opacity: .6
-      
+
       &:focus
       	outline: none
-      	
+
   .login__alert
   	color: $highlight
   	margin: 0 0 15px 0
@@ -75,20 +75,19 @@
 @media (max-width: 480px)
 
 	.form
-		
+
 		.options
 			margin: 0 0 45px 0
-			
+
 			&__el
 		    font-size: 24px
-		
+
 		.register,
 		.login
-		
+
 			&__submit
 				margin-top: 15px
-				
+
 			&__input
 	      margin-bottom: 30px
 	      padding: 15px 0
-	      

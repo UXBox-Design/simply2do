@@ -4,33 +4,24 @@ import HeaderForm from './headerForm'
 
 class Header extends React.Component {
 
-  toggleFilterOptions() {
-	  const filter = document.querySelector('.filter')
-    filter.classList.toggle('filter--is-open')
-  }
-  
-  toggleActiveFilter(ev) {
-	  if (ev.target.parentElement.classList.contains('filter__options-el')) {
-		  const currentActive = document.querySelector('.filter__options .is-active'),
-		  			selected = ev.target,
-		  			selectedValue = selected.textContent.toLowerCase()
-	    currentActive.classList.remove('is-active')
-	    selected.classList.add('is-active')
-	    ACTIONS.filterTasks(selectedValue)
-    }
+  selectFilter(ev) {
+    const selected = ev.target,
+          filterVal = selected.textContent.toLowerCase()
+    ACTIONS.updateActiveFilter(filterVal)
   }
 
   render() {
+    const { isOpen, active } = this.props.filterState
     return (
       <header className="header">
-        <div className="filter">
-          <div className="filter__toggle" onClick={this.toggleFilterOptions.bind(this)}>
+        <div className={isOpen ? 'filter filter--is-open' : 'filter'}>
+          <div className="filter__toggle" onClick={ACTIONS.toggleFilterOptions}>
             <img className="filter__toggle-el" src="img/cross.svg" />
           </div>
-          <ul className="filter__options" onClick={this.toggleActiveFilter}>
-            <li className="filter__options-el"><span className="is-active">All</span></li>
-            <li className="filter__options-el"><span>Complete</span></li>
-            <li className="filter__options-el"><span>Pending</span></li>
+          <ul className="filter__options">
+            <li className="filter__options-el"><span className={active === 'all' ? 'is-active' : ''} onClick={this.selectFilter.bind(this)}>All</span></li>
+            <li className="filter__options-el"><span className={active === 'complete' ? 'is-active' : ''} onClick={this.selectFilter.bind(this)}>Complete</span></li>
+            <li className="filter__options-el"><span className={active === 'pending' ? 'is-active' : ''} onClick={this.selectFilter.bind(this)}>Pending</span></li>
           </ul>
         </div>
         <h1 className="header__title">One Task at a Time</h1>
